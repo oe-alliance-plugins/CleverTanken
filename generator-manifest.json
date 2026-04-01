@@ -1,0 +1,18 @@
+{
+  "branch": "main",
+  "depends_recipe": "",
+  "description_control": "Clever Tanken Plugin",
+  "description_recipe": "Clever Tanken Plugin",
+  "history_source_dir": "CleverTanken",
+  "internal_package_name": "enigma2-plugin-extensions-clevertanken",
+  "module_dir_name": "CleverTanken",
+  "output_subdir": "CleverTanken",
+  "package_name": "enigma2-plugin-extensions-clevertanken",
+  "plugin_src_rel": "CleverTanken",
+  "python_package": "CleverTanken",
+  "rdepends_recipe": "",
+  "replaces": "",
+  "repo_name": "CleverTanken",
+  "rrecommends": "",
+  "rreplaces": ""
+}
