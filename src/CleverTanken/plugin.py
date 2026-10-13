@@ -14,7 +14,7 @@ from os.path import join, exists
 from re import findall, search, S
 from secrets import choice
 from requests import get, exceptions
-from twisted.internet.reactor import callInThread
+from twisted.internet.reactor import callFromThread, callInThread
 
 # ENIGMA IMPORTS
 from enigma import getDesktop, ePoint
@@ -71,7 +71,7 @@ class CThelper:
 		except exceptions.RequestException as error:
 			print(f"[{ctglobals.MODULE_NAME}] ERROR in module 'download': {error}")
 		else:
-			callback(response.text)
+			callFromThread(callback, response.text)  # GUI updates must run in the main thread
 
 
 class BlinkingLabel(Label, BlinkingWidget):
@@ -268,7 +268,7 @@ class CTmain(Screen, CThelper):
 						params = {"spritsorte": self.sprit[frame]}
 						callInThread(self.download, (url, params), self.makeFavoriteView)
 				else:
-					self[f"frame_{frame}"].updateList([tuple(("", "", "", "", "", "", "keine Favoriten vorhanden", "", "", "", ""))])
+					self[f"frame_{frame}"].updateList([tuple(("", "", "", "", "", "", "keine Favoriten vorhanden", "", "", "", "", None))])
 			else:
 				callInThread(self.download, self.createLink(frame), boundFunction(self.makeTankenView, frame))
 
