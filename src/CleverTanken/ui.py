@@ -24,7 +24,6 @@ from Components.ConditionalWidget import BlinkingWidget
 from Components.Label import Label
 from Components.Sources.StaticText import StaticText
 from Components.Sources.List import List
-from Plugins.Plugin import PluginDescriptor
 from Screens.ChoiceBox import ChoiceBox
 from Screens.MessageBox import MessageBox
 from Screens.Setup import Setup
